@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:TalendMetadata="http://www.talend.org/metadata/connection/2010" xmlns:orgomg.cwm.resource.record="http:///orgomg/cwm/resource/record.ecore">
+  <TalendMetadata:FileExcelConnection xmi:id="_JuAI4QYjEeqLy-IMQ-Ka5Q" name="location_update" dataPackage="_JuAI4gYjEeqLy-IMQ-Ka5Q" Server="Localhost 127.0.0.1" FilePath="F:/DataWareHouse Project/LOCATION_DETAIL_I.xlsx" Encoding="UTF-8" UseHeader="true" HeaderValue="1" FirstLineCaption="true" SheetName="Sheet1" firstColumn="1" thousandSeparator="','" decimalSeparator="'.'" selectAllSheets="true" sheetList="Sheet1:w&#xA;Sheet2:w&#xA;Sheet3:w&#xA;">
+    <sheetColumns>A</sheetColumns>
+    <sheetColumns>B</sheetColumns>
+    <sheetColumns>C</sheetColumns>
+    <sheetColumns>D</sheetColumns>
+  </TalendMetadata:FileExcelConnection>
+  <orgomg.cwm.resource.record:RecordFile xmi:id="_JuAI4gYjEeqLy-IMQ-Ka5Q" name="default" dataManager="_JuAI4QYjEeqLy-IMQ-Ka5Q">
+    <ownedElement xsi:type="TalendMetadata:MetadataTable" xmi:id="_JuAI4wYjEeqLy-IMQ-Ka5Q" id="__LoWUAYiEeqLy-IMQ-Ka5Q" label="metadata">
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_JuAI5AYjEeqLy-IMQ-Ka5Q" label="LOCATION_ID" length="1" talendType="id_Integer" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_JuAI5QYjEeqLy-IMQ-Ka5Q" label="CITY" length="8" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_JuAI5gYjEeqLy-IMQ-Ka5Q" label="STATE" length="8" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_JuAI5wYjEeqLy-IMQ-Ka5Q" label="COUNTRY" length="15" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+    </ownedElement>
+  </orgomg.cwm.resource.record:RecordFile>
+</xmi:XMI>

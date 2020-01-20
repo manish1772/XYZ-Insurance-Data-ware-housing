@@ -1,0 +1,851 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20194.19.1010.1202                               -->
+<datasource formatted-name='federated.1000yat0to3oq71h78dys1ydquma' inline='true' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <connection class='federated'>
+    <named-connections>
+      <named-connection caption='localhost' name='mysql.1bk3cre0eezsih1e55mgy1eci3bv'>
+        <connection class='mysql' dbname='insurance_dim' odbc-native-protocol='' one-time-sql='' port='3306' server='localhost' source-charset='' username='root' />
+      </named-connection>
+    </named-connections>
+    <relation join='inner' type='join'>
+      <clause type='join'>
+        <expression op='='>
+          <expression op='[agent_dim].[LOCATION_ID]' />
+          <expression op='[location_dim].[LOCATION_ID]' />
+        </expression>
+      </clause>
+      <relation join='inner' type='join'>
+        <clause type='join'>
+          <expression op='='>
+            <expression op='[policay_fact].[CUSTOMER_ID_SK]' />
+            <expression op='[customer_dim].[CUSTOMER_ID_SK]' />
+          </expression>
+        </clause>
+        <relation join='inner' type='join'>
+          <clause type='join'>
+            <expression op='='>
+              <expression op='[policay_fact].[DATE_KEY]' />
+              <expression op='[calendar_dim1].[DATE_KEY]' />
+            </expression>
+          </clause>
+          <relation join='inner' type='join'>
+            <clause type='join'>
+              <expression op='='>
+                <expression op='[policay_fact].[AGENT_DIM_SK]' />
+                <expression op='[agent_dim].[AGENT_DIM_SK]' />
+              </expression>
+            </clause>
+            <relation connection='mysql.1bk3cre0eezsih1e55mgy1eci3bv' name='policay_fact' table='[policay_fact]' type='table' />
+            <relation connection='mysql.1bk3cre0eezsih1e55mgy1eci3bv' name='agent_dim' table='[agent_dim]' type='table' />
+          </relation>
+          <relation connection='mysql.1bk3cre0eezsih1e55mgy1eci3bv' name='calendar_dim1' table='[calendar_dim1]' type='table' />
+        </relation>
+        <relation connection='mysql.1bk3cre0eezsih1e55mgy1eci3bv' name='customer_dim' table='[customer_dim]' type='table' />
+      </relation>
+      <relation connection='mysql.1bk3cre0eezsih1e55mgy1eci3bv' name='location_dim' table='[location_dim]' type='table' />
+    </relation>
+    <cols>
+      <map key='[ADDRESS]' value='[agent_dim].[ADDRESS]' />
+      <map key='[AGENT_DIM_SK (agent_dim)]' value='[agent_dim].[AGENT_DIM_SK]' />
+      <map key='[AGENT_DIM_SK]' value='[policay_fact].[AGENT_DIM_SK]' />
+      <map key='[AGENT_ID]' value='[agent_dim].[AGENT_ID]' />
+      <map key='[AGENT_NAME]' value='[agent_dim].[AGENT_NAME]' />
+      <map key='[CITY]' value='[location_dim].[CITY]' />
+      <map key='[COUNTRY]' value='[location_dim].[COUNTRY]' />
+      <map key='[CUSTOMER_ADDRESS]' value='[customer_dim].[CUSTOMER_ADDRESS]' />
+      <map key='[CUSTOMER_DOB]' value='[customer_dim].[CUSTOMER_DOB]' />
+      <map key='[CUSTOMER_FIRST_NAME]' value='[customer_dim].[CUSTOMER_FIRST_NAME]' />
+      <map key='[CUSTOMER_ID_BK]' value='[customer_dim].[CUSTOMER_ID_BK]' />
+      <map key='[CUSTOMER_ID_SK (customer_dim)]' value='[customer_dim].[CUSTOMER_ID_SK]' />
+      <map key='[CUSTOMER_ID_SK]' value='[policay_fact].[CUSTOMER_ID_SK]' />
+      <map key='[CUSTOMER_SECOND_NAME]' value='[customer_dim].[CUSTOMER_SECOND_NAME]' />
+      <map key='[DATE]' value='[calendar_dim1].[DATE]' />
+      <map key='[DATE_KEY (calendar_dim1)]' value='[calendar_dim1].[DATE_KEY]' />
+      <map key='[DATE_KEY]' value='[policay_fact].[DATE_KEY]' />
+      <map key='[DAY]' value='[calendar_dim1].[DAY]' />
+      <map key='[LOCATION_ID (location_dim)]' value='[location_dim].[LOCATION_ID]' />
+      <map key='[LOCATION_ID]' value='[agent_dim].[LOCATION_ID]' />
+      <map key='[MONTH]' value='[calendar_dim1].[MONTH]' />
+      <map key='[MONTH_WORDS]' value='[calendar_dim1].[MONTH_WORDS]' />
+      <map key='[PAYMENT_METHOD]' value='[policay_fact].[PAYMENT_METHOD]' />
+      <map key='[PINCODE (customer_dim)]' value='[customer_dim].[PINCODE]' />
+      <map key='[PINCODE]' value='[agent_dim].[PINCODE]' />
+      <map key='[SALES_CHANNEL]' value='[policay_fact].[SALES_CHANNEL]' />
+      <map key='[STATE]' value='[location_dim].[STATE]' />
+      <map key='[TRANSACTION_AMT]' value='[policay_fact].[TRANSACTION_AMT]' />
+      <map key='[TRANSACTION_ID]' value='[policay_fact].[TRANSACTION_ID]' />
+      <map key='[TRANSACTION_TYPE]' value='[policay_fact].[TRANSACTION_TYPE]' />
+      <map key='[TYPE]' value='[agent_dim].[TYPE]' />
+      <map key='[WEEKDAY]' value='[calendar_dim1].[WEEKDAY]' />
+      <map key='[WEEKDAY_NUM]' value='[calendar_dim1].[WEEKDAY_NUM]' />
+      <map key='[YEAR]' value='[calendar_dim1].[YEAR]' />
+      <map key='[scd_active (customer_dim)]' value='[customer_dim].[scd_active]' />
+      <map key='[scd_active]' value='[agent_dim].[scd_active]' />
+      <map key='[scd_end (customer_dim)]' value='[customer_dim].[scd_end]' />
+      <map key='[scd_end]' value='[agent_dim].[scd_end]' />
+      <map key='[scd_start (customer_dim)]' value='[customer_dim].[scd_start]' />
+      <map key='[scd_start]' value='[agent_dim].[scd_start]' />
+      <map key='[scd_version (customer_dim)]' value='[customer_dim].[scd_version]' />
+      <map key='[scd_version]' value='[agent_dim].[scd_version]' />
+    </cols>
+    <metadata-records>
+      <metadata-record class='column'>
+        <remote-name>TRANSACTION_ID</remote-name>
+        <remote-type>3</remote-type>
+        <local-name>[TRANSACTION_ID]</local-name>
+        <parent-name>[policay_fact]</parent-name>
+        <remote-alias>TRANSACTION_ID</remote-alias>
+        <ordinal>1</ordinal>
+        <local-type>integer</local-type>
+        <aggregation>Sum</aggregation>
+        <precision>10</precision>
+        <contains-null>false</contains-null>
+        <attributes>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+        </attributes>
+      </metadata-record>
+      <metadata-record class='column'>
+        <remote-name>TRANSACTION_TYPE</remote-name>
+        <remote-type>130</remote-type>
+        <local-name>[TRANSACTION_TYPE]</local-name>
+        <parent-name>[policay_fact]</parent-name>
+        <remote-alias>TRANSACTION_TYPE</remote-alias>
+        <ordinal>2</ordinal>
+        <local-type>string</local-type>
+        <aggregation>Count</aggregation>
+        <width>45</width>
+        <contains-null>true</contains-null>
+        <collation charset='296' flag='3' name='LROOT_S1' />
+        <attributes>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WVARCHAR&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+          <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+        </attributes>
+      </metadata-record>
+      <metadata-record class='column'>
+        <remote-name>TRANSACTION_AMT</remote-name>
+        <remote-type>3</remote-type>
+        <local-name>[TRANSACTION_AMT]</local-name>
+        <parent-name>[policay_fact]</parent-name>
+        <remote-alias>TRANSACTION_AMT</remote-alias>
+        <ordinal>3</ordinal>
+        <local-type>integer</local-type>
+        <aggregation>Sum</aggregation>
+        <precision>10</precision>
+        <contains-null>true</contains-null>
+        <attributes>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+        </attributes>
+      </metadata-record>
+      <metadata-record class='column'>
+        <remote-name>SALES_CHANNEL</remote-name>
+        <remote-type>130</remote-type>
+        <local-name>[SALES_CHANNEL]</local-name>
+        <parent-name>[policay_fact]</parent-name>
+        <remote-alias>SALES_CHANNEL</remote-alias>
+        <ordinal>4</ordinal>
+        <local-type>string</local-type>
+        <aggregation>Count</aggregation>
+        <width>45</width>
+        <contains-null>true</contains-null>
+        <collation charset='296' flag='3' name='LROOT_S1' />
+        <attributes>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WVARCHAR&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+          <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+        </attributes>
+      </metadata-record>
+      <metadata-record class='column'>
+        <remote-name>PAYMENT_METHOD</remote-name>
+        <remote-type>130</remote-type>
+        <local-name>[PAYMENT_METHOD]</local-name>
+        <parent-name>[policay_fact]</parent-name>
+        <remote-alias>PAYMENT_METHOD</remote-alias>
+        <ordinal>5</ordinal>
+        <local-type>string</local-type>
+        <aggregation>Count</aggregation>
+        <width>45</width>
+        <contains-null>true</contains-null>
+        <collation charset='296' flag='3' name='LROOT_S1' />
+        <attributes>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WVARCHAR&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+          <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+        </attributes>
+      </metadata-record>
+      <metadata-record class='column'>
+        <remote-name>CUSTOMER_ID_SK</remote-name>
+        <remote-type>3</remote-type>
+        <local-name>[CUSTOMER_ID_SK]</local-name>
+        <parent-name>[policay_fact]</parent-name>
+        <remote-alias>CUSTOMER_ID_SK</remote-alias>
+        <ordinal>6</ordinal>
+        <local-type>integer</local-type>
+        <aggregation>Sum</aggregation>
+        <precision>10</precision>
+        <contains-null>false</contains-null>
+        <attributes>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+        </attributes>
+      </metadata-record>
+      <metadata-record class='column'>
+        <remote-name>AGENT_DIM_SK</remote-name>
+        <remote-type>3</remote-type>
+        <local-name>[AGENT_DIM_SK]</local-name>
+        <parent-name>[policay_fact]</parent-name>
+        <remote-alias>AGENT_DIM_SK</remote-alias>
+        <ordinal>7</ordinal>
+        <local-type>integer</local-type>
+        <aggregation>Sum</aggregation>
+        <precision>10</precision>
+        <contains-null>false</contains-null>
+        <attributes>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+        </attributes>
+      </metadata-record>
+      <metadata-record class='column'>
+        <remote-name>DATE_KEY</remote-name>
+        <remote-type>3</remote-type>
+        <local-name>[DATE_KEY]</local-name>
+        <parent-name>[policay_fact]</parent-name>
+        <remote-alias>DATE_KEY</remote-alias>
+        <ordinal>8</ordinal>
+        <local-type>integer</local-type>
+        <aggregation>Sum</aggregation>
+        <precision>10</precision>
+        <contains-null>false</contains-null>
+        <attributes>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+        </attributes>
+      </metadata-record>
+      <metadata-record class='column'>
+        <remote-name>AGENT_ID</remote-name>
+        <remote-type>3</remote-type>
+        <local-name>[AGENT_ID]</local-name>
+        <parent-name>[agent_dim]</parent-name>
+        <remote-alias>AGENT_ID</remote-alias>
+        <ordinal>10</ordinal>
+        <local-type>integer</local-type>
+        <aggregation>Sum</aggregation>
+        <precision>10</precision>
+        <contains-null>false</contains-null>
+        <attributes>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+        </attributes>
+      </metadata-record>
+      <metadata-record class='column'>
+        <remote-name>AGENT_NAME</remote-name>
+        <remote-type>130</remote-type>
+        <local-name>[AGENT_NAME]</local-name>
+        <parent-name>[agent_dim]</parent-name>
+        <remote-alias>AGENT_NAME</remote-alias>
+        <ordinal>11</ordinal>
+        <local-type>string</local-type>
+        <aggregation>Count</aggregation>
+        <width>16</width>
+        <contains-null>true</contains-null>
+        <collation charset='296' flag='3' name='LROOT_S1' />
+        <attributes>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WVARCHAR&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+          <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+        </attributes>
+      </metadata-record>
+      <metadata-record class='column'>
+        <remote-name>ADDRESS</remote-name>
+        <remote-type>130</remote-type>
+        <local-name>[ADDRESS]</local-name>
+        <parent-name>[agent_dim]</parent-name>
+        <remote-alias>ADDRESS</remote-alias>
+        <ordinal>12</ordinal>
+        <local-type>string</local-type>
+        <aggregation>Count</aggregation>
+        <width>50</width>
+        <contains-null>true</contains-null>
+        <collation charset='296' flag='3' name='LROOT_S1' />
+        <attributes>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WVARCHAR&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+          <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+        </attributes>
+      </metadata-record>
+      <metadata-record class='column'>
+        <remote-name>LOCATION_ID</remote-name>
+        <remote-type>3</remote-type>
+        <local-name>[LOCATION_ID]</local-name>
+        <parent-name>[agent_dim]</parent-name>
+        <remote-alias>LOCATION_ID</remote-alias>
+        <ordinal>13</ordinal>
+        <local-type>integer</local-type>
+        <aggregation>Sum</aggregation>
+        <precision>10</precision>
+        <contains-null>true</contains-null>
+        <attributes>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+        </attributes>
+      </metadata-record>
+      <metadata-record class='column'>
+        <remote-name>PINCODE</remote-name>
+        <remote-type>3</remote-type>
+        <local-name>[PINCODE]</local-name>
+        <parent-name>[agent_dim]</parent-name>
+        <remote-alias>PINCODE</remote-alias>
+        <ordinal>14</ordinal>
+        <local-type>integer</local-type>
+        <aggregation>Sum</aggregation>
+        <precision>10</precision>
+        <contains-null>true</contains-null>
+        <attributes>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+        </attributes>
+      </metadata-record>
+      <metadata-record class='column'>
+        <remote-name>TYPE</remote-name>
+        <remote-type>130</remote-type>
+        <local-name>[TYPE]</local-name>
+        <parent-name>[agent_dim]</parent-name>
+        <remote-alias>TYPE</remote-alias>
+        <ordinal>15</ordinal>
+        <local-type>string</local-type>
+        <aggregation>Count</aggregation>
+        <width>3</width>
+        <contains-null>true</contains-null>
+        <collation charset='296' flag='3' name='LROOT_S1' />
+        <attributes>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WVARCHAR&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+          <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+        </attributes>
+      </metadata-record>
+      <metadata-record class='column'>
+        <remote-name>AGENT_DIM_SK</remote-name>
+        <remote-type>3</remote-type>
+        <local-name>[AGENT_DIM_SK (agent_dim)]</local-name>
+        <parent-name>[agent_dim]</parent-name>
+        <remote-alias>AGENT_DIM_SK</remote-alias>
+        <ordinal>16</ordinal>
+        <local-type>integer</local-type>
+        <aggregation>Sum</aggregation>
+        <precision>10</precision>
+        <contains-null>true</contains-null>
+        <attributes>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+        </attributes>
+      </metadata-record>
+      <metadata-record class='column'>
+        <remote-name>scd_start</remote-name>
+        <remote-type>7</remote-type>
+        <local-name>[scd_start]</local-name>
+        <parent-name>[agent_dim]</parent-name>
+        <remote-alias>scd_start</remote-alias>
+        <ordinal>17</ordinal>
+        <local-type>datetime</local-type>
+        <aggregation>Year</aggregation>
+        <contains-null>false</contains-null>
+        <attributes>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TYPE_TIMESTAMP&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_TYPE_TIMESTAMP&quot;</attribute>
+        </attributes>
+      </metadata-record>
+      <metadata-record class='column'>
+        <remote-name>scd_end</remote-name>
+        <remote-type>7</remote-type>
+        <local-name>[scd_end]</local-name>
+        <parent-name>[agent_dim]</parent-name>
+        <remote-alias>scd_end</remote-alias>
+        <ordinal>18</ordinal>
+        <local-type>datetime</local-type>
+        <aggregation>Year</aggregation>
+        <contains-null>true</contains-null>
+        <attributes>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TYPE_TIMESTAMP&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_TYPE_TIMESTAMP&quot;</attribute>
+        </attributes>
+      </metadata-record>
+      <metadata-record class='column'>
+        <remote-name>scd_version</remote-name>
+        <remote-type>3</remote-type>
+        <local-name>[scd_version]</local-name>
+        <parent-name>[agent_dim]</parent-name>
+        <remote-alias>scd_version</remote-alias>
+        <ordinal>19</ordinal>
+        <local-type>integer</local-type>
+        <aggregation>Sum</aggregation>
+        <precision>10</precision>
+        <contains-null>false</contains-null>
+        <attributes>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+        </attributes>
+      </metadata-record>
+      <metadata-record class='column'>
+        <remote-name>scd_active</remote-name>
+        <remote-type>11</remote-type>
+        <local-name>[scd_active]</local-name>
+        <parent-name>[agent_dim]</parent-name>
+        <remote-alias>scd_active</remote-alias>
+        <ordinal>20</ordinal>
+        <local-type>boolean</local-type>
+        <aggregation>Count</aggregation>
+        <contains-null>false</contains-null>
+        <attributes>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_BIT&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_BIT&quot;</attribute>
+        </attributes>
+      </metadata-record>
+      <metadata-record class='column'>
+        <remote-name>DATE_KEY</remote-name>
+        <remote-type>3</remote-type>
+        <local-name>[DATE_KEY (calendar_dim1)]</local-name>
+        <parent-name>[calendar_dim1]</parent-name>
+        <remote-alias>DATE_KEY</remote-alias>
+        <ordinal>22</ordinal>
+        <local-type>integer</local-type>
+        <aggregation>Sum</aggregation>
+        <precision>10</precision>
+        <contains-null>true</contains-null>
+        <attributes>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+        </attributes>
+      </metadata-record>
+      <metadata-record class='column'>
+        <remote-name>WEEKDAY_NUM</remote-name>
+        <remote-type>3</remote-type>
+        <local-name>[WEEKDAY_NUM]</local-name>
+        <parent-name>[calendar_dim1]</parent-name>
+        <remote-alias>WEEKDAY_NUM</remote-alias>
+        <ordinal>23</ordinal>
+        <local-type>integer</local-type>
+        <aggregation>Sum</aggregation>
+        <precision>10</precision>
+        <contains-null>false</contains-null>
+        <attributes>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+        </attributes>
+      </metadata-record>
+      <metadata-record class='column'>
+        <remote-name>YEAR</remote-name>
+        <remote-type>3</remote-type>
+        <local-name>[YEAR]</local-name>
+        <parent-name>[calendar_dim1]</parent-name>
+        <remote-alias>YEAR</remote-alias>
+        <ordinal>24</ordinal>
+        <local-type>integer</local-type>
+        <aggregation>Sum</aggregation>
+        <precision>10</precision>
+        <contains-null>false</contains-null>
+        <attributes>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+        </attributes>
+      </metadata-record>
+      <metadata-record class='column'>
+        <remote-name>MONTH</remote-name>
+        <remote-type>3</remote-type>
+        <local-name>[MONTH]</local-name>
+        <parent-name>[calendar_dim1]</parent-name>
+        <remote-alias>MONTH</remote-alias>
+        <ordinal>25</ordinal>
+        <local-type>integer</local-type>
+        <aggregation>Sum</aggregation>
+        <precision>10</precision>
+        <contains-null>false</contains-null>
+        <attributes>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+        </attributes>
+      </metadata-record>
+      <metadata-record class='column'>
+        <remote-name>DAY</remote-name>
+        <remote-type>3</remote-type>
+        <local-name>[DAY]</local-name>
+        <parent-name>[calendar_dim1]</parent-name>
+        <remote-alias>DAY</remote-alias>
+        <ordinal>26</ordinal>
+        <local-type>integer</local-type>
+        <aggregation>Sum</aggregation>
+        <precision>10</precision>
+        <contains-null>false</contains-null>
+        <attributes>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+        </attributes>
+      </metadata-record>
+      <metadata-record class='column'>
+        <remote-name>WEEKDAY</remote-name>
+        <remote-type>130</remote-type>
+        <local-name>[WEEKDAY]</local-name>
+        <parent-name>[calendar_dim1]</parent-name>
+        <remote-alias>WEEKDAY</remote-alias>
+        <ordinal>27</ordinal>
+        <local-type>string</local-type>
+        <aggregation>Count</aggregation>
+        <width>45</width>
+        <contains-null>false</contains-null>
+        <collation charset='296' flag='3' name='LROOT_S1' />
+        <attributes>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WVARCHAR&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+          <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+        </attributes>
+      </metadata-record>
+      <metadata-record class='column'>
+        <remote-name>MONTH_WORDS</remote-name>
+        <remote-type>130</remote-type>
+        <local-name>[MONTH_WORDS]</local-name>
+        <parent-name>[calendar_dim1]</parent-name>
+        <remote-alias>MONTH_WORDS</remote-alias>
+        <ordinal>28</ordinal>
+        <local-type>string</local-type>
+        <aggregation>Count</aggregation>
+        <width>45</width>
+        <contains-null>false</contains-null>
+        <collation charset='296' flag='3' name='LROOT_S1' />
+        <attributes>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WVARCHAR&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+          <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+        </attributes>
+      </metadata-record>
+      <metadata-record class='column'>
+        <remote-name>DATE</remote-name>
+        <remote-type>7</remote-type>
+        <local-name>[DATE]</local-name>
+        <parent-name>[calendar_dim1]</parent-name>
+        <remote-alias>DATE</remote-alias>
+        <ordinal>29</ordinal>
+        <local-type>datetime</local-type>
+        <aggregation>Year</aggregation>
+        <contains-null>false</contains-null>
+        <attributes>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TYPE_TIMESTAMP&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_TYPE_TIMESTAMP&quot;</attribute>
+        </attributes>
+      </metadata-record>
+      <metadata-record class='column'>
+        <remote-name>CUSTOMER_ID_BK</remote-name>
+        <remote-type>3</remote-type>
+        <local-name>[CUSTOMER_ID_BK]</local-name>
+        <parent-name>[customer_dim]</parent-name>
+        <remote-alias>CUSTOMER_ID_BK</remote-alias>
+        <ordinal>31</ordinal>
+        <local-type>integer</local-type>
+        <aggregation>Sum</aggregation>
+        <precision>10</precision>
+        <contains-null>false</contains-null>
+        <attributes>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+        </attributes>
+      </metadata-record>
+      <metadata-record class='column'>
+        <remote-name>CUSTOMER_FIRST_NAME</remote-name>
+        <remote-type>130</remote-type>
+        <local-name>[CUSTOMER_FIRST_NAME]</local-name>
+        <parent-name>[customer_dim]</parent-name>
+        <remote-alias>CUSTOMER_FIRST_NAME</remote-alias>
+        <ordinal>32</ordinal>
+        <local-type>string</local-type>
+        <aggregation>Count</aggregation>
+        <width>45</width>
+        <contains-null>true</contains-null>
+        <collation charset='296' flag='3' name='LROOT_S1' />
+        <attributes>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WVARCHAR&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+          <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+        </attributes>
+      </metadata-record>
+      <metadata-record class='column'>
+        <remote-name>CUSTOMER_SECOND_NAME</remote-name>
+        <remote-type>130</remote-type>
+        <local-name>[CUSTOMER_SECOND_NAME]</local-name>
+        <parent-name>[customer_dim]</parent-name>
+        <remote-alias>CUSTOMER_SECOND_NAME</remote-alias>
+        <ordinal>33</ordinal>
+        <local-type>string</local-type>
+        <aggregation>Count</aggregation>
+        <width>45</width>
+        <contains-null>true</contains-null>
+        <collation charset='296' flag='3' name='LROOT_S1' />
+        <attributes>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WVARCHAR&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+          <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+        </attributes>
+      </metadata-record>
+      <metadata-record class='column'>
+        <remote-name>CUSTOMER_ADDRESS</remote-name>
+        <remote-type>130</remote-type>
+        <local-name>[CUSTOMER_ADDRESS]</local-name>
+        <parent-name>[customer_dim]</parent-name>
+        <remote-alias>CUSTOMER_ADDRESS</remote-alias>
+        <ordinal>34</ordinal>
+        <local-type>string</local-type>
+        <aggregation>Count</aggregation>
+        <width>45</width>
+        <contains-null>true</contains-null>
+        <collation charset='296' flag='3' name='LROOT_S1' />
+        <attributes>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WVARCHAR&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+          <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+        </attributes>
+      </metadata-record>
+      <metadata-record class='column'>
+        <remote-name>PINCODE</remote-name>
+        <remote-type>3</remote-type>
+        <local-name>[PINCODE (customer_dim)]</local-name>
+        <parent-name>[customer_dim]</parent-name>
+        <remote-alias>PINCODE</remote-alias>
+        <ordinal>35</ordinal>
+        <local-type>integer</local-type>
+        <aggregation>Sum</aggregation>
+        <precision>10</precision>
+        <contains-null>true</contains-null>
+        <attributes>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+        </attributes>
+      </metadata-record>
+      <metadata-record class='column'>
+        <remote-name>CUSTOMER_DOB</remote-name>
+        <remote-type>7</remote-type>
+        <local-name>[CUSTOMER_DOB]</local-name>
+        <parent-name>[customer_dim]</parent-name>
+        <remote-alias>CUSTOMER_DOB</remote-alias>
+        <ordinal>36</ordinal>
+        <local-type>datetime</local-type>
+        <aggregation>Year</aggregation>
+        <contains-null>true</contains-null>
+        <attributes>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TYPE_TIMESTAMP&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_TYPE_TIMESTAMP&quot;</attribute>
+        </attributes>
+      </metadata-record>
+      <metadata-record class='column'>
+        <remote-name>CUSTOMER_ID_SK</remote-name>
+        <remote-type>3</remote-type>
+        <local-name>[CUSTOMER_ID_SK (customer_dim)]</local-name>
+        <parent-name>[customer_dim]</parent-name>
+        <remote-alias>CUSTOMER_ID_SK</remote-alias>
+        <ordinal>37</ordinal>
+        <local-type>integer</local-type>
+        <aggregation>Sum</aggregation>
+        <precision>10</precision>
+        <contains-null>true</contains-null>
+        <attributes>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+        </attributes>
+      </metadata-record>
+      <metadata-record class='column'>
+        <remote-name>scd_active</remote-name>
+        <remote-type>11</remote-type>
+        <local-name>[scd_active (customer_dim)]</local-name>
+        <parent-name>[customer_dim]</parent-name>
+        <remote-alias>scd_active</remote-alias>
+        <ordinal>38</ordinal>
+        <local-type>boolean</local-type>
+        <aggregation>Count</aggregation>
+        <contains-null>false</contains-null>
+        <attributes>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_BIT&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_BIT&quot;</attribute>
+        </attributes>
+      </metadata-record>
+      <metadata-record class='column'>
+        <remote-name>scd_start</remote-name>
+        <remote-type>7</remote-type>
+        <local-name>[scd_start (customer_dim)]</local-name>
+        <parent-name>[customer_dim]</parent-name>
+        <remote-alias>scd_start</remote-alias>
+        <ordinal>39</ordinal>
+        <local-type>datetime</local-type>
+        <aggregation>Year</aggregation>
+        <contains-null>false</contains-null>
+        <attributes>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TYPE_TIMESTAMP&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_TYPE_TIMESTAMP&quot;</attribute>
+        </attributes>
+      </metadata-record>
+      <metadata-record class='column'>
+        <remote-name>scd_end</remote-name>
+        <remote-type>7</remote-type>
+        <local-name>[scd_end (customer_dim)]</local-name>
+        <parent-name>[customer_dim]</parent-name>
+        <remote-alias>scd_end</remote-alias>
+        <ordinal>40</ordinal>
+        <local-type>datetime</local-type>
+        <aggregation>Year</aggregation>
+        <contains-null>true</contains-null>
+        <attributes>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TYPE_TIMESTAMP&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_TYPE_TIMESTAMP&quot;</attribute>
+        </attributes>
+      </metadata-record>
+      <metadata-record class='column'>
+        <remote-name>scd_version</remote-name>
+        <remote-type>3</remote-type>
+        <local-name>[scd_version (customer_dim)]</local-name>
+        <parent-name>[customer_dim]</parent-name>
+        <remote-alias>scd_version</remote-alias>
+        <ordinal>41</ordinal>
+        <local-type>integer</local-type>
+        <aggregation>Sum</aggregation>
+        <precision>10</precision>
+        <contains-null>false</contains-null>
+        <attributes>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+        </attributes>
+      </metadata-record>
+      <metadata-record class='column'>
+        <remote-name>LOCATION_ID</remote-name>
+        <remote-type>3</remote-type>
+        <local-name>[LOCATION_ID (location_dim)]</local-name>
+        <parent-name>[location_dim]</parent-name>
+        <remote-alias>LOCATION_ID</remote-alias>
+        <ordinal>43</ordinal>
+        <local-type>integer</local-type>
+        <aggregation>Sum</aggregation>
+        <precision>10</precision>
+        <contains-null>false</contains-null>
+        <attributes>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+        </attributes>
+      </metadata-record>
+      <metadata-record class='column'>
+        <remote-name>CITY</remote-name>
+        <remote-type>130</remote-type>
+        <local-name>[CITY]</local-name>
+        <parent-name>[location_dim]</parent-name>
+        <remote-alias>CITY</remote-alias>
+        <ordinal>44</ordinal>
+        <local-type>string</local-type>
+        <aggregation>Count</aggregation>
+        <width>45</width>
+        <contains-null>true</contains-null>
+        <collation charset='296' flag='3' name='LROOT_S1' />
+        <attributes>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WVARCHAR&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+          <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+        </attributes>
+      </metadata-record>
+      <metadata-record class='column'>
+        <remote-name>STATE</remote-name>
+        <remote-type>130</remote-type>
+        <local-name>[STATE]</local-name>
+        <parent-name>[location_dim]</parent-name>
+        <remote-alias>STATE</remote-alias>
+        <ordinal>45</ordinal>
+        <local-type>string</local-type>
+        <aggregation>Count</aggregation>
+        <width>45</width>
+        <contains-null>true</contains-null>
+        <collation charset='296' flag='3' name='LROOT_S1' />
+        <attributes>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WVARCHAR&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+          <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+        </attributes>
+      </metadata-record>
+      <metadata-record class='column'>
+        <remote-name>COUNTRY</remote-name>
+        <remote-type>130</remote-type>
+        <local-name>[COUNTRY]</local-name>
+        <parent-name>[location_dim]</parent-name>
+        <remote-alias>COUNTRY</remote-alias>
+        <ordinal>46</ordinal>
+        <local-type>string</local-type>
+        <aggregation>Count</aggregation>
+        <width>45</width>
+        <contains-null>true</contains-null>
+        <collation charset='296' flag='3' name='LROOT_S1' />
+        <attributes>
+          <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WVARCHAR&quot;</attribute>
+          <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+          <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+        </attributes>
+      </metadata-record>
+    </metadata-records>
+  </connection>
+  <column aggregation='Sum' datatype='integer' name='[AGENT_DIM_SK (agent_dim)]' role='dimension' type='ordinal' />
+  <column aggregation='Sum' datatype='integer' name='[AGENT_DIM_SK]' role='dimension' type='ordinal' />
+  <column datatype='integer' name='[AGENT_ID]' role='dimension' type='ordinal' />
+  <column datatype='string' name='[AGENT_NAME]' role='dimension' type='nominal' />
+  <column aggregation='None' datatype='string' name='[CITY]' role='dimension' semantic-role='[City].[Name]' type='nominal' />
+  <column aggregation='None' datatype='string' name='[COUNTRY]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
+  <column aggregation='Sum' datatype='integer' name='[CUSTOMER_ID_SK (customer_dim)]' role='dimension' type='ordinal' />
+  <column aggregation='Sum' datatype='integer' name='[CUSTOMER_ID_SK]' role='dimension' type='ordinal' />
+  <column datatype='datetime' name='[DATE]' role='dimension' type='ordinal' />
+  <column aggregation='Sum' datatype='integer' name='[DATE_KEY (calendar_dim1)]' role='dimension' type='ordinal' />
+  <column aggregation='Sum' datatype='integer' name='[DATE_KEY]' role='dimension' type='ordinal' />
+  <column datatype='integer' name='[DAY]' role='dimension' type='quantitative' />
+  <column datatype='integer' name='[LOCATION_ID (location_dim)]' role='dimension' type='ordinal' />
+  <column datatype='integer' name='[LOCATION_ID]' role='dimension' type='ordinal' />
+  <column datatype='integer' name='[MONTH]' role='dimension' type='quantitative' />
+  <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+    <calculation class='tableau' formula='1' />
+  </column>
+  <column datatype='string' name='[PAYMENT_METHOD]' role='dimension' type='nominal' />
+  <column aggregation='None' datatype='string' name='[STATE]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+  <column datatype='integer' name='[TRANSACTION_ID]' role='dimension' type='ordinal' />
+  <column datatype='integer' name='[WEEKDAY_NUM]' role='dimension' type='ordinal' />
+  <column datatype='integer' name='[YEAR]' role='dimension' type='quantitative' />
+  <column-instance column='[AGENT_NAME]' derivation='None' name='[none:AGENT_NAME:nk]' pivot='key' type='nominal' />
+  <column-instance column='[PAYMENT_METHOD]' derivation='None' name='[none:PAYMENT_METHOD:nk]' pivot='key' type='nominal' />
+  <column-instance column='[DATE]' derivation='Year' name='[yr:DATE:ok]' pivot='key' type='ordinal' />
+  <drill-paths>
+    <drill-path name='COUNTRY, STATE, CITY' />
+  </drill-paths>
+  <layout dim-ordering='alphabetic' dim-percentage='0.392857' measure-ordering='alphabetic' measure-percentage='0.607143' show-structure='true' />
+  <style>
+    <style-rule element='mark'>
+      <encoding attr='color' field='[none:PAYMENT_METHOD:nk]' type='palette'>
+        <map to='#b07aa1'>
+          <bucket>&quot;DD&quot;</bucket>
+        </map>
+      </encoding>
+      <encoding attr='color' field='[none:AGENT_NAME:nk]' type='palette'>
+        <map to='#4e79a7'>
+          <bucket>&quot;XYZ  ROSSES&quot;</bucket>
+        </map>
+        <map to='#59a14f'>
+          <bucket>&quot;XYZ LISTOWEL&quot;</bucket>
+        </map>
+        <map to='#76b7b2'>
+          <bucket>&quot;XYZ INS HO&quot;</bucket>
+        </map>
+        <map to='#e15759'>
+          <bucket>&quot;HEGARTY HO&quot;</bucket>
+        </map>
+        <map to='#f28e2b'>
+          <bucket>&quot;LONDON HO&quot;</bucket>
+        </map>
+      </encoding>
+      <encoding attr='color' field='[yr:DATE:ok]' palette='red_gold_10_0' type='palette'>
+        <map to='#ee734a'>
+          <bucket>2011</bucket>
+        </map>
+      </encoding>
+    </style-rule>
+  </style>
+  <semantic-values>
+    <semantic-value key='[Country].[Name]' value='&quot;Ireland&quot;' />
+  </semantic-values>
+</datasource>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:TalendMetadata="http://www.talend.org/metadata/connection/2010" xmlns:orgomg.cwm.resource.record="http:///orgomg/cwm/resource/record.ecore">
+  <TalendMetadata:FileExcelConnection xmi:id="_6NP6gQZTEeqLy-IMQ-Ka5Q" name="calendar" dataPackage="_6NP6ggZTEeqLy-IMQ-Ka5Q" Server="Localhost 127.0.0.1" FilePath="F:/DataWareHouse Project/CALENDAR.xlsx" Encoding="UTF-8" UseHeader="true" HeaderValue="1" FirstLineCaption="true" SheetName="Sheet2" firstColumn="1" thousandSeparator="','" decimalSeparator="'.'" selectAllSheets="true" sheetList="Sheet2:w&#xA;Sheet3:w&#xA;">
+    <sheetColumns>A</sheetColumns>
+    <sheetColumns>B</sheetColumns>
+    <sheetColumns>C</sheetColumns>
+    <sheetColumns>D</sheetColumns>
+    <sheetColumns>E</sheetColumns>
+    <sheetColumns>F</sheetColumns>
+    <sheetColumns>G</sheetColumns>
+  </TalendMetadata:FileExcelConnection>
+  <orgomg.cwm.resource.record:RecordFile xmi:id="_6NP6ggZTEeqLy-IMQ-Ka5Q" name="default" dataManager="_6NP6gQZTEeqLy-IMQ-Ka5Q">
+    <ownedElement xsi:type="TalendMetadata:MetadataTable" xmi:id="_6NP6gwZTEeqLy-IMQ-Ka5Q" id="_u_XFwAZTEeqLy-IMQ-Ka5Q" label="metadata">
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_6NP6hAZTEeqLy-IMQ-Ka5Q" label="DATE" length="-1" talendType="id_Date" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_6NP6hQZTEeqLy-IMQ-Ka5Q" label="WEEKDAY_NUM" length="1" talendType="id_Integer" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_6NP6hgZTEeqLy-IMQ-Ka5Q" label="YEAR" length="4" talendType="id_Integer" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_6NP6hwZTEeqLy-IMQ-Ka5Q" label="MONTH" length="1" talendType="id_Integer" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_6NP6iAZTEeqLy-IMQ-Ka5Q" label="DAY" length="2" talendType="id_Integer" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_6NP6iQZTEeqLy-IMQ-Ka5Q" label="WEEKDAY_WORDS" length="3" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_6NP6igZTEeqLy-IMQ-Ka5Q" label="MONTH_WORDS" length="3" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+    </ownedElement>
+  </orgomg.cwm.resource.record:RecordFile>
+</xmi:XMI>
